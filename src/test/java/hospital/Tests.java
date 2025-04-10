@@ -4,7 +4,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.PriorityQueue;
 
-public class Tests {
+
+public class PacienteTest {
 
     @Test
     public void testAgregarPaciente() {
@@ -12,7 +13,8 @@ public class Tests {
         Paciente p = new Paciente("Juan", "fractura", 'C');
         cola.add(p);
 
-        assertFalse(cola.isEmpty());
+        // Verificar que el paciente se agregó correctamente
+        assertFalse("La cola no debería estar vacía", cola.isEmpty());
         assertEquals("Juan", cola.peek().getNombre());
     }
 
@@ -22,9 +24,9 @@ public class Tests {
         Paciente p = new Paciente("Juan", "fractura", 'C');
         cola.add(p);
 
+        // Eliminar el paciente y verificar
         Paciente eliminado = cola.poll();
-
         assertEquals("Juan", eliminado.getNombre());
-        assertTrue(cola.isEmpty());
+        assertTrue("La cola debería estar vacía después de eliminar", cola.isEmpty());
     }
 }
